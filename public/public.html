@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Audience Screen</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<!-- <body class="container"> -->
+
+<body>
+
+    <table>
+        <tr>
+            <td valign="middle" class="actual-ticket">
+                <span id="lblTicket1" class="number-actual-ticket">Ticket W</span>
+                <br>
+                <span id="lblDesk1" class="desk-actual-ticket">Desk W</span>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td>
+                            <span id="lblTicket2" class="secondary-ticket">Ticket X</span>
+                            <br>
+                            <span id="lblDesk2">Desk X</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="lblTicket3" class="secondary-ticket">Ticket Y</span>
+                            <br>
+                            <span id="lblDesk3">Desk Y</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span id="lblTicket4" class="secondary-ticket">Ticket Z</span>
+                            <br>
+                            <span id="lblDesk4">Desk Z</span>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <script src="js/libs/jquery.min.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="js/socket.public.js"></script>
+
+</body>
+
+</html>

@@ -5,15 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Programa de Colas</title>
+    <title>Ticket Program</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>Programa de Colas</h1>
+<body class="container">
+    <h1>Ticket Program</h1>
 
-    <script src="socket.io/socket.io.js"></script>
+    <div class="row">
+        <div class="col-6">
 
-    <script src="js/socket-custom.js"></script>
+            <a class="btn btn-primary" href="public.html">Public Display</a>
+            <a class="btn btn-secondary" href="new-ticket.html">Create Tickets</a>
+
+        </div>
+
+        <div class="col-6">
+            <form action="desk.html">
+                <input name="desk" type="number" class="form-control" placeholder="Desk" autofocus required>
+
+                <br>
+                <button type="submit" class="btn btn-primary">
+                    Get in
+                </button>
+            </form>
+        </div>
+    </div>
 
 </body>
 

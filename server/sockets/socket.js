@@ -1,36 +1,35 @@
 const { io } = require('../server');
+const { TicketControl } = require('../classes/ticket-control');
 
-io.on('connection', (cliente) => {
-    console.log('User connected');
+const ticketControl = new TicketControl();
 
-    cliente.emit('sendMessage', {
-        user: 'Admin',
-        message: 'Welcome'
+io.on('connection', (client) => {
+    client.on('nextTicket', (data, callback) => {
+        let next = ticketControl.nextTicket();
+        console.log(next);
+        callback(next);
     });
 
-    // Listen client
-    cliente.on('disconnect', () => {
-        console.log('User disconnected');
+    client.emit('actualStatus', {
+        actual: ticketControl.getLastTicket(),
+        last4: ticketControl.getLast4()
     });
 
-    // Listen client
-    cliente.on('sendMessage', (data, callback) => {
+    client.on('attendTicket', (data, callback) => {
+        if (!data.desk) {
+            return callback({
+                err: true,
+                message: 'Desk is required'
+            });
+        }
 
-        console.log(data);
+        let attendTicket = ticketControl.attendTicket(data.desk);
 
-        cliente.broadcast.emit('sendMessage', data);
+        callback(attendTicket);
 
-
-        // if (message.user) {
-        //     callback({
-        //         resp: 'All Good'
-        //     });
-        // } else {
-        //     callback({
-        //         resp: 'All Bad'
-        //     });
-        // }
-
+        client.broadcast.emit('last4', {
+            last4: ticketControl.getLast4()
+        });
     });
 
 });
